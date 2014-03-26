@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="HFXBlog"
+  id="myeclipse.1395720608320"
+  context-root="/HFXBlog"
+  j2ee-spec="5.0"
+  archive="HFXBlog.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
