@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	
+	<class name="com.HFXBlog.main.model.Admin" table="hfxblog_admin" catalog="hfxblog">
+	
+		<id name="adminID" type="java.lang.Long">
+			<column name="ADMIN_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="adminname" type="String">
+			<column name="ADMINNAME" length="20" not-null="true" />
+		</property>
+		<property name="password" type="String">
+			<column name="PASSWORD" length="30" not-null="true" />
+		</property>
+		<property name="email" type="String">
+			<column name="EMAIL" length="255" not-null="true" />
+		</property>
+		<property name="date" type="timestamp">
+			<column name="DATE" not-null="true" />
+		</property>
+	
+	</class>
+	
+</hibernate-mapping>
