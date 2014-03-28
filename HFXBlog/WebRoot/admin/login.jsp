@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -10,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>HFXBlog</title>
+    <title>admin login</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -24,12 +24,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script text="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 	<script text="text/javascript" src="js/bootstrap.min.js"></script>
-	
+
   </head>
   
-  
   <body>
-    <tiles:insertDefinition name="baseLayout" />
+  	
+    <jsp:include page="/views/header.jsp"/>
+    
+    <div class="container">
+    	<form class="form-signin" role="form">
+        	<h2 class="form-signin-heading">HFXBlog</h2>
+        	<input type="text" class="form-control" placeholder="username" required autofocus>
+        	<input type="password" class="form-control" placeholder="Password" required>
+        	<a href="mailto:#">忘记密码?</a><br />
+        	<a href="mailto:#">用户注册</a>
+        	<div class="alert alert-danger"></div>
+        	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      	</form>
+      </div>
+    
+    <jsp:include page="/views/footer.jsp"/>
+    
+    
   </body>
 </html>
-

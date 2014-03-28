@@ -7,18 +7,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
     <base href="<%=basePath%>">
+	
+	
+		<tiles:insertAttribute name="header" />
+	
+	
+	<div class="jumbotron">
+		<tiles:insertAttribute name="center" />
+	</div>
+	
 
-	<div id="navbar">
-		<tiles:insertAttribute name="header" /><br /><br /><br /><br />
-	</div>
-	
-	<div id="body">
-		<tiles:insertAttribute name="center" /><br />
-	</div>
-	
-	<div id="bottom">
-		<tiles:insertAttribute name="footer" /><br />
-	</div>
+		<tiles:insertAttribute name="footer" />
     
 	
 

@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -17,7 +17,7 @@
 				<li><a href="#about">网志</a></li>
 				<li><a href="#contact">列表</a></li>
 				<li class="dropdown">
-        			<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Dropdown <b class="caret"></b></a>
+        			<a href="#" class="dropdown-toggle" data-toggle="dropdown" >项目 <b class="caret"></b></a>
         			<ul class="dropdown-menu">
           				<li><a href="www.baidu.com">filterfile.py</a></li>
           				
@@ -38,19 +38,18 @@
 			
 			
 			<ul class="nav navbar-nav navbar-right">
-				<img src="icon/github.png" class=".wrap{position:relative;top:15px;}" />
+				<a href="https://www.github.com/FX-HAO/"><img class="wrap" src="icon/github.png"/></a><br /><br />
 				<div class="row">
-  					<div class="col-lg-100">
-    					<div class="input-group input-group-sm">
-      						<span class="input-group-btn">
-        						<button class="btn btn-primary" type="button">Go!</button>
-      						</span>
-      						<input type="text" class="form-control">
-    					</div>
+  					<div>
+    					<form class="navbar-form navbar-left" role="search">
+    						<button class="btn btn-primary" type="submit">Go!</button>
+      						<div class="form-group">
+      							<input type="text" class="form-control" placeholder="Search">
+      						</div>
+    					</form>
   					</div>
   				</div>
   			</ul>
 		</div>
 	</div>
-</nav>
-
+</div>
