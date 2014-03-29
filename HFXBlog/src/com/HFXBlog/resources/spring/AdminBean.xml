@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="registerAction" class="com.HFXBlog.main.action.RegisterAction" scope="prototype">
+		<property name="adminBo" ref="adminBo" />
+	</bean>
+	
+	<bean id="adminBo" class="com.HFXBlog.main.bo.impl.AdminBoImpl">
+		<property name="adminDAO" ref="adminDAO" />
+		<property name="sendMail" ref="sendMail" />
+	</bean>
+	
+	<bean id="adminDAO" class="com.HFXBlog.main.dao.impl.AdminDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+</beans>

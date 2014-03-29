@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="sendMail" class="com.HFXBlog.main.services.SendMail">
+		<property name="mail" ref="mail" />
+	</bean>
+	
+	<bean id="mail" class="com.HFXBlog.main.services.Mail">
+		<property name="mailSender" ref="mailSender" />
+	</bean>
+	
+	<!-- send mail -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${EMAIL.host}" />
+		<property name="port" value="${EMAIL.port}" />
+		<property name="username" value="${EMAIL.username}" />
+		<property name="password" value="${EMAIL.password}" />
+		
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+		
+	</bean>
+	
+</beans>
