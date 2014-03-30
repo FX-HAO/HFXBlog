@@ -1,3 +1,7 @@
 -version 0.0.0
 
 """HFXBlog found by hfx"""
+
+A blog create by ssh framework in java.if you need an ssh framework, perhaps it would help
+
+This is a blog project, implements by bootstrap and the annotation ssh framework.
