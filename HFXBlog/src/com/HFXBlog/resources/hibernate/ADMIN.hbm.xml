@@ -10,13 +10,16 @@
 			<column name="ADMIN_ID" />
 			<generator class="identity" />
 		</id>
-		<property name="adminname" type="String">
+		<property name="adminname" type="string">
 			<column name="ADMINNAME" length="20" not-null="true" />
 		</property>
-		<property name="password" type="String">
+		<property name="password" type="string">
 			<column name="PASSWORD" length="30" not-null="true" />
 		</property>
-		<property name="email" type="String">
+		<property name="nickname" type="string">
+			<column name="NICKNAME" length="40" not-null="true" />
+		</property>
+		<property name="email" type="string">
 			<column name="EMAIL" length="255" not-null="true" />
 		</property>
 		<property name="date" type="timestamp">

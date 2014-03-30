@@ -24,4 +24,6 @@ public interface AdminBo {
 	//send mail
 	void SendMail(String toEmail,String adminname,String url);
 	
+	//register validate
+	public String registerValidate(Admin admin,String confirmPassword);
 }

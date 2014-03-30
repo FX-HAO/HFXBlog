@@ -38,7 +38,7 @@
 			
 			
 			<ul class="nav navbar-nav navbar-right">
-				<a href="https://www.github.com/FX-HAO/"><img class="wrap" src="icon/github.png"/></a><br /><br />
+				<a href="https://www.github.com/FX-HAO/"><img style="position:relative;top:5px;" src="icon/github.png"/></a><br /><br />
 				<div class="row">
   					<div>
     					<form class="navbar-form navbar-left" role="search">

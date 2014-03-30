@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
+	
+	<constant name="struts.devMode" value="true" />
+	
+	<package name="register" namespace="/admin" extends="json-default">
+		
+		<action name="validateAJAXAction" class="com.HFXBlog.main.action.RegisterAction" method="validateAJAX">
+            <result name="success" type="json">
+            	<param name="includeProperties">
+    				error
+  				</param>
+            </result>
+        </action>
+		
+		<action name="addAdminAction" class="com.HFXBlog.main.action.RegisterAction" method="execute" >
+		    <result name="success">/jsp/admin/login.jsp</result>
+		    <result name="input">/jsp/admin/register.jsp</result>
+		</action>
+		
+	</package>
+	
 </struts>    

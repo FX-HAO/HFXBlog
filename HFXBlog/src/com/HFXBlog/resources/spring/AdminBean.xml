@@ -11,6 +11,7 @@
 	<bean id="adminBo" class="com.HFXBlog.main.bo.impl.AdminBoImpl">
 		<property name="adminDAO" ref="adminDAO" />
 		<property name="sendMail" ref="sendMail" />
+		<property name="validate" ref="validate" />
 	</bean>
 	
 	<bean id="adminDAO" class="com.HFXBlog.main.dao.impl.AdminDAOImpl">

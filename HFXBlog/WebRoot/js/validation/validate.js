@@ -53,11 +53,8 @@ $(document).ready(function(){
 });
     
 function show(haofuxin,status,three){
-    if(haofuxin.error!=""){
+    if(haofuxin.error!=null){
     	$(".alert.alert-danger").html(haofuxin.error);
-    	alert(haofuxin.error);
-    	alert(status);
-    	alert(three);
     	$(".alert.alert-danger").show();
     }
 }
@@ -67,8 +64,8 @@ function validateAJAX(){
 			"admin.nickname":$("#nickname").val(),
 			"admin.adminname":$("#adminname").val(),
 			"admin.password":$("#password").val(),
-			"confirmPassword":$("#confrimPassword").val(),
-			"admin.email":$("email").val()
+			"confirmPassword":$("#confirmPassword").val(),
+			"admin.email":$("#email").val()
 		};
 	
 	$.ajax({

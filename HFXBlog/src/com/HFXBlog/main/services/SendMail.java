@@ -17,8 +17,7 @@ public class SendMail {
 	}
 	
 	public void send(String toEmail,String adminname,String url) throws IOException{
-		URL u=SendMail.class.getResource("/com/HFXBlog/resources/config/database/properties/database.properties");
-		System.out.println(u.getFile());
+		URL u=SendMail.class.getResource("/com/HFXBlog/resources/config/properties/email.properties");
 		File file=new File(u.getFile());
 		FileInputStream in=new FileInputStream(file);
 		Properties pros=new Properties();

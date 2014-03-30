@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.HFXBlog.main.model.Admin;
 
+//Admin Business Object
 public interface AdminDAO {
 	
 	//add admin
@@ -20,5 +21,7 @@ public interface AdminDAO {
 		
 	//query admin
 	Admin queryByName(Admin admin);
+	
+	List<Object[]> queryExistNames();
 	
 }
