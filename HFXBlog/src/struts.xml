@@ -4,9 +4,9 @@
 	
 	<constant name="struts.devMode" value="true" />
 	
-	<package name="register" namespace="/admin" extends="json-default">
+	<package name="validate" namespace="/admin" extends="json-default">
 		
-		<action name="validateAJAXAction" class="com.HFXBlog.main.action.RegisterAction" method="validateAJAX">
+		<action name="validateAJAXAction" class="com.HFXBlog.main.action.ValidateAction" method="validateAJAX">
             <result name="success" type="json">
             	<param name="includeProperties">
     				error
@@ -14,9 +14,14 @@
             </result>
         </action>
 		
-		<action name="addAdminAction" class="com.HFXBlog.main.action.RegisterAction" method="execute" >
+		<action name="addAdminAction" class="com.HFXBlog.main.action.ValidateAction" method="register">
 		    <result name="success">/jsp/admin/login.jsp</result>
 		    <result name="input">/jsp/admin/register.jsp</result>
+		</action>
+		
+		<action name="loginAction" class="com.HFXBlog.main.action.ValidateAction" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="input">/jsp/admin/login.jsp</result>
 		</action>
 		
 	</package>

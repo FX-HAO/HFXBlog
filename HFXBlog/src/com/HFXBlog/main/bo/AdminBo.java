@@ -17,13 +17,13 @@ public interface AdminBo {
 	
 	//query all the admins
 	List<Admin> queryAll();
-		
-	//query admin
-	Admin queryByName(Admin admin);
 	
 	//send mail
 	void SendMail(String toEmail,String adminname,String url);
 	
 	//register validate
-	public String registerValidate(Admin admin,String confirmPassword);
+	String registerValidate(Admin admin,String confirmPassword);
+	
+	//login validate
+	Admin loginValidate(Admin admin);
 }

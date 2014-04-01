@@ -81,6 +81,17 @@ function validateAJAX(){
 	});
 }
 
+function check(){
+	if($(".alert.alert-danger").text()!=""){
+		$(".alert.alert-danger").html("信息错误，请检查后再提交!");
+    	$(".alert.alert-danger").show();
+		return false;
+	}
+	else{
+		
+	};
+}
+
 function initAlertError(){
 	$(".alert.alert-danger").hide();
 	$(".alert.alert-danger").html("");

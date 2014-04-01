@@ -38,7 +38,10 @@
 			
 			
 			<ul class="nav navbar-nav navbar-right">
-				<a href="https://www.github.com/FX-HAO/"><img style="position:relative;top:5px;" src="icon/github.png"/></a><br /><br />
+				<div class="tooltip-demo"> 
+					<a href="https://www.github.com/FX-HAO/"><img title="my project on Github" data-placement="bottom" data-toggle="tooltip" data-original-title="Tooltip on bottom" style="position:relative;top:5px;" src="icon/github.png"/></a>
+				</div>
+				<br /><br />
 				<div class="row">
   					<div>
     					<form class="navbar-form navbar-left" role="search">

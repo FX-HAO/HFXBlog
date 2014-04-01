@@ -52,14 +52,6 @@ public class AdminBoImpl implements AdminBo{
 		return adminDAO.queryAll();
 	}
 	
-	public Admin queryByName(Admin admin) {
-		return adminDAO.queryByName(admin);
-	}
-	
-	public List<Object[]> queryExistNames(){
-		return adminDAO.queryExistNames();
-	}
-	
 	public void SendMail(String toEmail,String adminname,String url){
 		try{
 			sendMail.send(toEmail, adminname, url);
@@ -69,31 +61,18 @@ public class AdminBoImpl implements AdminBo{
 		}
 	}
 	
+	public Admin loginValidate(Admin admin){
+		Admin adminData=adminDAO.queryByName(admin);
+		if(adminData==null){
+			return null;
+		}
+		return validate.loginValidate(admin,adminData);
+	}
+	
 	public String registerValidate(Admin admin,String confirmPassword){
-		String[][] names=null;
-		List list=queryExistNames();
-		String[] nickname=null;
-		String[] adminname=null;
-		String[] email=null;
-		if(list!=null && list.size()!=0){
-			nickname=new String[list.size()];
-			adminname=new String[list.size()];
-			email=new String[list.size()];
-			for(int i=0;i<list.size();i++){
-				nickname[i]=(String)(((Object[])list.get(i))[0]);
-				adminname[i]=(String)(((Object[])list.get(i))[1]);
-				email[i]=(String)(((Object[])list.get(i))[2]);
-			}
-			names=new String[3][];
-			names[0]=nickname;
-			names[1]=adminname;
-			names[2]=email;
-		}
-		
-		try{
-			return validate.registerValidate(names, admin, confirmPassword);
-		}
-		catch(IOException e){
+		try {
+			return validate.registerValidate(admin,adminDAO.queryByNickName(admin),adminDAO.queryByName(admin),adminDAO.queryByEmail(admin), confirmPassword);
+		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}

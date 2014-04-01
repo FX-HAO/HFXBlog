@@ -22,6 +22,10 @@ public interface AdminDAO {
 	//query admin
 	Admin queryByName(Admin admin);
 	
+	Admin queryByNickName(Admin admin);
+	
+	Admin queryByEmail(Admin admin);
+	
 	List<Object[]> queryExistNames();
 	
 }

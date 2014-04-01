@@ -23,7 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script text="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 	<script text="text/javascript" src="js/bootstrap.min.js"></script>
-	<script text="text/javascript" src="js/validation/validate.js"></script>
+	<script text="text/javascript" src="js/validation/validate.js" charset="gb2312"></script>
+	<script text="text/javascript" src="js/main/main.js"></script>
 
   </head>
   
@@ -31,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <jsp:include page="/views/header.jsp"/>
     
     <div class="container">
-    	<form class="form-signin" role="form" action="admin/addAdminAction.action" method="POST">
+    	<form class="form-signin" role="form" action="admin/addAdminAction.action" method="POST" onSubmit="return check();">
         	<h2 class="form-signin-heading">Registion</h2>
         	<label for="exampleInputPassword1">Nickname</label>
         	<input id="nickname" name="admin.nickname" type="text" class="form-control" placeholder="Nickname" required autofocus>
@@ -44,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	<label for="exampleInputEmail1">Email address</label>
         	<input id="email" name="admin.email" type="text" class="form-control" placeholder="Email" required>
         	<div class="alert alert-danger"></div>
-        	<button class="btn btn-lg btn-primary btn-block" type="submit" onclick="validateForm()">Sign Up</button>
+        	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       	</form>
     </div>
     

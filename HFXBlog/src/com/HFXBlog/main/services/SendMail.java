@@ -23,9 +23,9 @@ public class SendMail {
 		Properties pros=new Properties();
 		pros.load(in);
 		in.close();
-		String text=String.format(pros.getProperty("EMAIL.text"),adminname,url,adminname);
-		String subject=pros.getProperty("EMAIL.subject");
-		String from=pros.getProperty("EMAIL.from");
+		String text=String.format(pros.getProperty("EMAIL.REGIST.text"),adminname,url,adminname);
+		String subject=pros.getProperty("EMAIL.REGIST.subject");
+		String from=pros.getProperty("EMAIL.REGIST.from");
 		mail.sendMail(text,subject,from,toEmail);
 	}
 	

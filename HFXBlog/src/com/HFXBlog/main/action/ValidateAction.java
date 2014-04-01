@@ -61,7 +61,6 @@ public class ValidateAction extends ActionSupport implements java.io.Serializabl
 				admin.setNickname(strs[3].split("=")[1]);
 				confirmPassword=strs[4].split("=")[1];
 				validateAJAX();
-				System.out.println("SUCCESS INFORMATION is error:"+error);
 				if(error!=null)
 					return "input";
 				adminBo.addAdmin(admin);
@@ -77,7 +76,6 @@ public class ValidateAction extends ActionSupport implements java.io.Serializabl
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		System.out.println(error);
 		return "success";
 	}
 	
