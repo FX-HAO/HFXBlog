@@ -28,4 +28,34 @@
 	
 	</class>
 	
+	<class name="com.HFXBlog.main.model.Article" table="hfxblog_article" catalog="hfxblog">
+		
+		<id name="title" type="java.lang.String">
+			<column name="TITLE" />
+			<generator class="assigned" />
+		</id>
+		<property name="category" type="string">
+			<column name="CATEGORY" not-null="true" />
+		</property>
+		<property name="author" type="string">
+			<column name="AUTHOR" not-null="true" />
+		</property>
+		<property name="content" type="string">
+			<column name="CONTENT" not-null="true" />
+		</property>
+		<property name="tag" type="string">
+			<column name="TAG" />
+		</property>
+		<property name="sort" type="string">
+			<column name="SORT" />
+		</property>
+		<property name="readership" type="int">
+			<column name="READERSHIP" />
+		</property>
+		<property name="date" type="timestamp">
+			<column name="DATE" />
+		</property>
+		
+	</class>
+	
 </hibernate-mapping>

@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script text="text/javascript" src="js/main/main.js"></script>
 	<script text="text/javascript" src="js/component/RichText/jquery.hotkeys.js"></script>
 	<script text="text/javascript" src="js/component/RichText/bootstrap-wysiwyg.js"></script>
-	<script text="text/javascript" src="js/backstage/post.js"></script>
+	<script text="text/javascript" src="js/backstage/post.js" charset="gb2312"></script>
 
   </head>
   
@@ -124,15 +124,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
     </div>
   	</div>
-  	<form role="form" action="index.jsp" method="POST" onSubmit="return write();">
-  		<input type="hidden" name="category" />
-  		<input type="hidden" name="title" />
-  		<input type="hidden" name="author" value="${admin.nickname}" />
-  		<input type="hidden" name="content" />
+  	<form role="form" action="backstage/addArticleAction.action" method="POST" onsubmit="return Check();">
+  		<input type="hidden" name="article.category" />
+  		<input type="hidden" name="article.title" />
+  		<input type="hidden" name="article.author" value="${sessionScope.admin.nickname}" />
+  		<input type="hidden" name="article.content" />
     	<strong><small>文章标签（添加Tag，你的内容能被更多人看到）</small></strong>
-    	<input type="text" class="form-control inline" placeholder="tag之间用,分隔">
+    	<input name="article.tag" type="text" class="form-control inline" placeholder="tag之间用,分隔">
     	<strong><small>个人分类</small></strong>
-    	<input type="text" class="form-control inline" placeholder="多个分类之间用,分隔">
+    	<input name="article.sort" type="text" class="form-control inline" placeholder="多个分类之间用,分隔">
     	<button type="submit" class="btn btn-primary btn-lg btn-block">发表文章</button>
     </form>
     
@@ -141,54 +141,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <br /><br /><br /><br />
     <jsp:include page="/views/footer.jsp"/>
   </body>
-<script>
-  $(function(){
-    function initToolbarBootstrapBindings() {
-      var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 
-            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
-            'Times New Roman', 'Verdana'],
-            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
-      $.each(fonts, function (idx, fontName) {
-          fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
-      });
-      $('a[title]').tooltip({container:'body'});
-    	$('.dropdown-menu input').click(function() {return false;})
-		    .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
-        .keydown('esc', function () {this.value='';$(this).change();});
-
-      $('[data-role=magic-overlay]').each(function () { 
-        var overlay = $(this), target = $(overlay.data('target')); 
-        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
-      });
-      if ("onwebkitspeechchange"  in document.createElement("input")) {
-        var editorOffset = $('#editor').offset();
-        $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
-      } else {
-        $('#voiceBtn').hide();
-      }
-	};
-	function showErrorAlert (reason, detail) {
-		var msg='';
-		if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
-		else {
-			console.log("error uploading file", reason, detail);
-		}
-		$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ 
-		 '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
-	};
-    initToolbarBootstrapBindings(); 
-	$('#editor').wysiwyg({ fileUploadError: showErrorAlert} );
-  });
-  
-  function write(){
-	alert("!!!");
-	/*alert($("#category").text());
-	$("input[name='category']").val($("#category").text());
-	alert($("#title").val());
-	$("input[name='title']").val($("#title").val());
-	alert($("#editor").text());
-	$("input[name='content']").val($("#editor").text());*/
-	return false;
-}
-</script>
 </html>

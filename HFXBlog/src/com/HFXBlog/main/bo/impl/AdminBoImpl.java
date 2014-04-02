@@ -15,21 +15,11 @@ public class AdminBoImpl implements AdminBo{
 	private SendMail sendMail;
 	private Validate validate;
 	
-	
-	public SendMail getSendMail() {
-		return sendMail;
-	}
 	public void setSendMail(SendMail sendMail) {
 		this.sendMail = sendMail;
 	}
-	public AdminDAO getAdminDAO() {
-		return adminDAO;
-	}
 	public void setAdminDAO(AdminDAO adminDAO) {
 		this.adminDAO = adminDAO;
-	}
-	public Validate getValidate() {
-		return validate;
 	}
 	public void setValidate(Validate validate) {
 		this.validate = validate;

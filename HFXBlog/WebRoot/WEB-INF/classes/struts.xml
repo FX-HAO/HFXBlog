@@ -5,6 +5,9 @@
 	<constant name="struts.devMode" value="true" />
 	
 	<package name="validate" namespace="/admin" extends="json-default">
+		<global-results>
+			<result name="error">/jsp/error/Error.jsp</result>
+		</global-results>
 		
 		<action name="validateAJAXAction" class="com.HFXBlog.main.action.ValidateAction" method="validateAJAX">
             <result name="success" type="json">
@@ -20,8 +23,19 @@
 		</action>
 		
 		<action name="loginAction" class="com.HFXBlog.main.action.ValidateAction" method="login">
-			<result name="success">/index.jsp</result>
+			<result name="success">/jsp/backstage/postedit.jsp</result>
 			<result name="input">/jsp/admin/login.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="backstage" namespace="/backstage" extends="struts-default">
+		<global-results>
+			<result name="error">/jsp/error/Error.jsp</result>
+		</global-results>
+		
+		<action name="addArticleAction" class="com.HFXBlog.main.action.PostAction" method="addArticle">
+			<result name="success">/jsp/backstage/postedit.jsp</result>
 		</action>
 		
 	</package>

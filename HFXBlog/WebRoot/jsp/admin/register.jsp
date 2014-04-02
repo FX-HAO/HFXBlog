@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="expires" content="0">
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <jsp:include page="/views/header.jsp"/>
     
     <div class="container">
-    	<form class="form-signin" role="form" action="admin/addAdminAction.action" method="POST" onSubmit="return check();">
+    	<form class="form-signin" role="form" action="admin/addAdminAction.action" method="POST">
         	<h2 class="form-signin-heading">Registion</h2>
         	<label for="exampleInputPassword1">Nickname</label>
         	<input id="nickname" name="admin.nickname" type="text" class="form-control" placeholder="Nickname" required autofocus>

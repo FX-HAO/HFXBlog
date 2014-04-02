@@ -20,17 +20,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/backgroud/batman.css">
 	
 	<script text="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 	<script text="text/javascript" src="js/bootstrap.min.js"></script>
+	<script text="text/javascript" src="js/backgroud/batman.js"></script>
 
   </head>
   
   <body>
     <jsp:include page="/views/header.jsp"/>
     
-    <h1>Error Page</h1>
     
+    <body>
+<div id="animate">
+    <ol>
+    <li class="run time">
+        <div class="stage">
+            <div id="head-1"></div>
+            <div id="head-2"></div>
+            <div id="headear"></div>
+            <div id="headear-radius"></div>
+            <div id="white-square"></div>
+            <div id="face-left"></div>
+            <div id="face-right"></div>
+            <div id="face"></div>
+            <div id="brow-right"></div>
+            <div id="eye-left"></div>
+            <div id="eye-right"></div>
+            <div id="brow-left"></div>
+            <div id="back_mouse"></div>
+            <div id="circle1"></div>
+            <div id="circle2"></div>
+            <div id="circle3"></div>
+            <div id="circle4"></div>
+            <div id="ear"></div>
+            <div id="ear-square"></div>
+        </div>
+    </li>
+    </ol>
+</div>
+
+			<div style="text-align:center;clear:both">
+				<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+				<script src="/follow.js" type="text/javascript"></script>
+				<h1>Error Page 404</h1>
+			</div>
+	</body>
+    
+    <br /><br /><br /><br />
     <jsp:include page="/views/footer.jsp"/>
   </body>
 </html>

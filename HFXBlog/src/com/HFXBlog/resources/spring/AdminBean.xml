@@ -18,4 +18,16 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="postAction" class="com.HFXBlog.main.action.PostAction">
+		<property name="articleBo" value="#{articleBo}" />
+	</bean>
+	
+	<bean id="articleBo" class="com.HFXBlog.main.bo.impl.ArticleBoImpl">
+		<property name="articleDAO" value="#{articleDAO}" />
+	</bean>
+	
+	<bean id="articleDAO" class="com.HFXBlog.main.dao.impl.ArticleDAOImpl">
+		<property name="sessionFactory" value="#{sessionFactory}" />
+	</bean>
+	
 </beans>

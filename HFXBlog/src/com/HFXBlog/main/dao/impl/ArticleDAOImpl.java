@@ -1,0 +1,56 @@
+package com.HFXBlog.main.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import com.HFXBlog.main.dao.ArticleDAO;
+import com.HFXBlog.main.model.Article;
+
+public class ArticleDAOImpl extends HibernateDaoSupport implements ArticleDAO{
+
+	public void addArticle(Article article) {
+		getHibernateTemplate().save(article);
+	}
+
+	public void deleteArticle(Article article) {
+		org.hibernate.Session session=getHibernateTemplate().getSessionFactory().openSession();
+		Query query=session.createQuery("delete Article where TITLE=:title");
+		query.setParameter("title", article.getTitle());
+		query.executeUpdate();
+		session.close();
+	}
+
+	public void updateArticle(Article article) {
+		org.hibernate.Session session=getHibernateTemplate().getSessionFactory().openSession();
+		Query query=session.createQuery("update Article set CONTENT=:content where TITLE=:title");
+		query.setParameter("content", article.getContent());
+		query.setParameter("title", article.getTitle());
+		query.executeUpdate();
+		session.close();
+	}
+
+	public Article queryArticle(Article article) {
+		org.hibernate.Session session=getHibernateTemplate().getSessionFactory().openSession();
+		Query query=session.createQuery("from Article where TITLE=:title");
+		query.setParameter("title", article.getTitle());
+		List list=query.list();
+		if(list.size()==0)
+			return null;
+		Article newarticle=(Article) list.get(0);
+		session.close();
+		return newarticle;
+	}
+
+	public List<Article> queryArticles(int fromPage, int toPage) {
+		org.hibernate.Session session=getHibernateTemplate().getSessionFactory().openSession();
+		Query query=session.createQuery("from Article");
+		query.setFirstResult(fromPage-1);
+		query.setMaxResults(toPage-fromPage);
+		List list=query.list();
+		session.close();
+		return list;
+	}
+	
+}

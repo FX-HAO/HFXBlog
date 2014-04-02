@@ -35,10 +35,8 @@ public class Validate {
 		if(admin.getPassword()==null || !Pattern.compile(pros.getProperty("REGEX.password")).matcher(admin.getPassword()).matches())
 			return pros.getProperty("REGIST.INVALID.password");
 		
-		if(!admin.getPassword().equals(confirmPassword)){
-			System.out.println(admin.getPassword()+"::"+confirmPassword);
+		if(!admin.getPassword().equals(confirmPassword))
 			return pros.getProperty("REGIST.INVALID.confirmPassword");
-		}
 		
 		if(admin.getEmail()==null || !Pattern.compile(pros.getProperty("REGEX.email")).matcher(admin.getEmail()).matches())
 			return pros.getProperty("REGIST.INVALID.email");
