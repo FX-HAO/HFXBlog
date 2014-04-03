@@ -18,6 +18,9 @@ public interface AdminBo {
 	//query all the admins
 	List<Admin> queryAll();
 	
+	//query by name
+	Admin queryByName(Admin admin);
+	
 	//send mail
 	void SendMail(String toEmail,String adminname,String url);
 	

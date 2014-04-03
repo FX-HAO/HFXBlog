@@ -21,7 +21,6 @@ public class PostAction extends ActionSupport{
 	}
 	
 	public String addArticle() throws Exception {
-		System.out.println("addArticle is called!");
 		articleBo.addArticle(article);
 		return "success";
 	}

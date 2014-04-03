@@ -85,7 +85,7 @@ public class ValidateAction extends ActionSupport implements java.io.Serializabl
 			addActionError("Incorrect username or password.");
 			return "input";
 		}
-		ServletActionContext.getRequest().setAttribute("nickname", admin.getAdminname());
+		admin=adminBo.queryByName(admin);
 		ServletActionContext.getRequest().getSession(true).setAttribute("admin", admin);
 		return "success";
 		

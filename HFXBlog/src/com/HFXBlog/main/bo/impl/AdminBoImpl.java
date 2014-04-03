@@ -38,6 +38,10 @@ public class AdminBoImpl implements AdminBo{
 		adminDAO.deleteAdmin(admin);
 	}
 
+	public Admin queryByName(Admin admin) {
+		return adminDAO.queryByName(admin);
+	}
+	
 	public List<Admin> queryAll() {
 		return adminDAO.queryAll();
 	}

@@ -1,8 +1,7 @@
 
 
 
-function Check(){
-	alert("${sessionScope.admin.nickname}");
+function Post(){
 	$("input[name='article.title']").val($("#title").val());
 	$("input[name='article.category']").val($("#category option:selected").text());
 	$("input[name='article.content']").val($("#editor").html());
@@ -47,13 +46,3 @@ $(function(){
 	$('#editor').wysiwyg({ fileUploadError: showErrorAlert} );
   });
   
-  function write(){
-	alert("!!!");
-	/*alert($("#category").text());
-	$("input[name='category']").val($("#category").text());
-	alert($("#title").val());
-	$("input[name='title']").val($("#title").val());
-	alert($("#editor").text());
-	$("input[name='content']").val($("#editor").text());*/
-	return false;
-}

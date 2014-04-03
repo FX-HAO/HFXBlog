@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
     <base href="<%=basePath%>">
@@ -124,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
     </div>
   	</div>
-  	<form role="form" action="backstage/addArticleAction.action" method="POST" onsubmit="return Check();">
+  	<form role="form" action="backstage/addArticleAction.action" method="POST" onsubmit="return Post();">
   		<input type="hidden" name="article.category" />
   		<input type="hidden" name="article.title" />
   		<input type="hidden" name="article.author" value="${sessionScope.admin.nickname}" />
