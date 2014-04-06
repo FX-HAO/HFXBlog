@@ -12,9 +12,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<tiles:insertAttribute name="header" />
 	
 	
-	<div class="jumbotron">
+
 		<tiles:insertAttribute name="center" />
-	</div>
+
 	
 
 		<tiles:insertAttribute name="footer" />

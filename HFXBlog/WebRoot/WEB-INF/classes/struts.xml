@@ -40,4 +40,19 @@
 		
 	</package>
 	
+	<package name="reader" namespace="/reader" extends="struts-default">
+		<global-results>
+			<result name="error">/jsp/error/Error.jsp</result>
+		</global-results>
+		
+		<action name="indexAction" class="com.HFXBlog.main.action.PostAction" method="index">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="articleAction" class="com.HFXBlog.main.action.PostAction" method="article">
+			<result name="success">/article.jsp</result>
+		</action>
+	
+	</package>
+	
 </struts>    
