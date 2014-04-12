@@ -24,8 +24,9 @@ public class ArticleDAOImpl extends HibernateDaoSupport implements ArticleDAO{
 
 	public void updateArticle(Article article) {
 		org.hibernate.Session session=getHibernateTemplate().getSessionFactory().openSession();
-		Query query=session.createQuery("update Article set CONTENT=:content where TITLE=:title");
+		Query query=session.createQuery("update Article set CONTENT=:content,READERSHIP=:readership where TITLE=:title");
 		query.setParameter("content", article.getContent());
+		query.setParameter("readership", article.getReadership());
 		query.setParameter("title", article.getTitle());
 		query.executeUpdate();
 		session.close();
@@ -45,7 +46,7 @@ public class ArticleDAOImpl extends HibernateDaoSupport implements ArticleDAO{
 
 	public List<Article> queryArticles(int fromPage, int toPage) {
 		org.hibernate.Session session=getHibernateTemplate().getSessionFactory().openSession();
-		Query query=session.createQuery("from Article");
+		Query query=session.createQuery("from Article order by DATE DESC");
 		query.setFirstResult(fromPage-1);
 		query.setMaxResults(toPage-fromPage);
 		List list=query.list();

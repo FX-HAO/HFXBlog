@@ -8,11 +8,61 @@
 			fReader = new FileReader();
 		fReader.onload = function (e) {
 			loader.resolve(e.target.result);
+			
+			var xhr = null;
+		    if(window.XMLHttpRequest)
+		    {//·ÇIEÄÚºËä¯ÀÀÆ÷
+		        xhr=new XMLHttpRequest();
+		    }
+		    else if(window.ActiveXObject)
+		    {//IEÄÚºËä¯ÀÀÆ÷
+		        try
+		        {//IE6.0
+		            xhr=new ActiveXObject("Microsoft.XMLHTTP");
+		        }
+		        catch(e1)
+		        {
+		            try
+		            {
+		                xhr=new ActiveXObject("MSXML2.XMLHTTP");
+		            }
+		            catch(e2)
+		            {
+		                try
+		                {
+		                    xhr=new ActiveXObject("MSXML3.XMLHTTP");
+		                }
+		                catch(e3)
+		                {
+		                    alert("´´½¨AjaxÊ§°Ü£º"+e3);
+		                }
+		            }
+		        }
+		    }
+		    else
+		    {//Î´Öªä¯ÀÀÆ÷
+		        alert("Î´ÄÜÊ¶±ðµÄä¯ÀÀÆ÷");
+		    }
+			xhr.open(/* method */ "POST", 
+					 /* target url */ "upload/file.servlet?fileName=" + fileInfo.name
+					 /*, async, default to true */);
+			xhr.overrideMimeType("application/octet-stream");
+			xhr.sendAsBinary(fReader.result);
+			xhr.onreadystatechange = function() { 
+				if (xhr.readyState == 4) { 
+					if (xhr.status == 200) { 
+						console.log("upload complete"); 
+						console.log("response: " + xhr.responseText);
+					}
+				}
+			};
 		};
+		
 		fReader.onerror = loader.reject;
 		fReader.onprogress = loader.notify;
-		fReader.readAsDataURL(fileInfo);
-		return loader.promise();
+		//fReader.readAsDataURL(fileInfo);
+		fReader.readAsBinaryString(fileInfo);
+		return "upload/blog/article/"+fileInfo.name;
 	};
 	$.fn.cleanHtml = function () {
 		var html = $(this).html();

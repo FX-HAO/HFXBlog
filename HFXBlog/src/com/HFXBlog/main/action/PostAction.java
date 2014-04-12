@@ -1,8 +1,12 @@
 package com.HFXBlog.main.action;
 
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Map;
+
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
+import it.sauronsoftware.base64.Base64;
 
 import com.HFXBlog.main.model.Article;
 import com.HFXBlog.main.bo.ArticleBo;
@@ -29,7 +33,6 @@ public class PostAction extends ActionSupport{
 	}
 	
 	public String index() throws Exception {
-		System.out.println("index() is called!");
 		HttpServletRequest request=ServletActionContext.getRequest();
 		int page=0;
 		if(request.getParameter("page")!=null){
@@ -48,14 +51,19 @@ public class PostAction extends ActionSupport{
 	
 	public String article() throws Exception {
 		HttpServletRequest request=ServletActionContext.getRequest();
-		String title=request.getParameter("title");
+		String title=Base64.decode(request.getParameter("title").replace(" ", "+"));
+		System.out.println(title);
 		if(title==null){
 			return "success";
 		}
 		article=new Article();
 		article.setTitle(title);
 		Article result=articleBo.queryArticle(article);
-		request.setAttribute("article", result);
+		if(result!=null){
+			result.setReadership(result.getReadership()+1);
+			articleBo.updateArticle(result);
+			request.setAttribute("article", result);
+		}
 		return "success";
 	}
 	

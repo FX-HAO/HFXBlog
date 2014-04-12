@@ -1,15 +1,15 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,it.sauronsoftware.base64.Base64,com.HFXBlog.main.model.Article;" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-	<div class="jumbotron">
-	<div class="jumbotron" id="center">
+	<div class="jumbotron" style="background-image:url('picture/welcome.jpg');width:1400px; height:300px;overflow:hidden;">
+	<div class="jumbotron" id="center" style="filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity: 0.5;  opacity: 0.5;">
 		<div class="container">
        		<h1>欢迎来到HFXBlog.com</h1>
         	<p>welcome to HFXBlog.com</p>
 		</div>
 	</div>
 	</div>
-	
 	<div class="container" id="container">
 		<c:if test="${ requestScope.articles!=null }">
 			<c:forEach var="article" items="${ requestScope.articles }">
@@ -21,21 +21,27 @@
 
     						<aside class="entry-meta">
     							<div class="row">
-								<time class="post-date" datetime="2014-03-29T04:40:27.714Z">
-    								<span class="post-month">三月</span>
-									<strong class="post-day">29</strong>
-									<span class="post-year">2014</span>
+								<time class="post-date" datetime="${ article.date }">
+    								<span class="post-month"><fmt:formatDate value="${article.date}" type="both" pattern="MMMM"/></span>
+									<strong class="post-day"><fmt:formatDate value="${article.date}" type="both" pattern="d"/></strong>
+									<span class="post-year"><fmt:formatDate value="${article.date}" type="both" pattern="yyyy"/></span>
 								</time>
 								</div>
 								<div class="row">&nbsp;<strong>作者:${ article.author }</strong></div>
     							<div class="row">&nbsp;<strong>閱讀:${ article.readership }</strong></div>
+    							<div class="row">&nbsp;<strong>${ article.category }</strong></div>
+    							<c:forTokens items="${ article.tag }" delims=",，" var="tag">
+    								<div class="row">&nbsp;${ tag }</div>
+    							</c:forTokens>
 							</aside>
 						</article>
 					</div>
 				</div>
 			
 				<div class="col-md-10">
-					<h2 style="color:blue;"><a href="reader/articleAction.action?title=${ article.title }"><c:out value="${ article.title }" /></a></h2>
+					<% String titleURL=((Article)(pageContext.getAttribute("article"))).getTitle(); 
+						String encrypt=Base64.encode(titleURL);%>
+					<h2 style="color:blue;"><a href='reader/articleAction.action?title=<%= encrypt %>'><c:out value="${ article.title }" /></a></h2>
 					<p><c:out value="${ article.content }" escapeXml="false" /></p>
 				</div>
 			</div>

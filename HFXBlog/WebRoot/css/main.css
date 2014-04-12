@@ -5,8 +5,16 @@ body {
   padding-bottom: 20px;
 }
 
+body.background{
+  background-image:url('../picture/geek.jpg');
+  background-size:cover;
+  background-position:top center;
+  background-attachment:fixed;
+}
+
 div.container#container{
 	width: 920px;
+	background-color:white;
 }
 
 hr{
@@ -96,7 +104,6 @@ hr{
 }
 
 .post-year{
-	background:url("../images/post-meta-divider.png") top repeat-x;
 	color:#fff;
 	padding:10px 0 0 0
 }

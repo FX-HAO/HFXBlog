@@ -27,9 +27,21 @@
  <listener>
   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
  </listener>
+ <servlet>
+  <servlet-name>upload</servlet-name>
+  <servlet-class>com.HFXBlog.main.async.Upload</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>upload</servlet-name>
+  <url-pattern>/upload/file.servlet</url-pattern>
+ </servlet-mapping>
  <welcome-file-list>
   <welcome-file>index.jsp</welcome-file>
  </welcome-file-list>
+ <error-page>
+  <error-code>404</error-code>
+  <location>/jsp/error/Error.jsp</location>
+ </error-page>
  <login-config>
   <auth-method>BASIC</auth-method>
  </login-config>

@@ -6,7 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html dir="ltr" lang="zh-CN">
   <head>
     <base href="<%=basePath%>">
     
@@ -16,11 +16,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<meta name="viewport" content="width=device-width" />
+	<meta charset="UTF-8" />
 	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	
 	
 	<script text="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 	<script text="text/javascript" src="js/bootstrap.min.js"></script>
@@ -29,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   
-  <body>
+  <body class="background">
     <tiles:insertDefinition name="baseLayout" />
   </body>
 </html>

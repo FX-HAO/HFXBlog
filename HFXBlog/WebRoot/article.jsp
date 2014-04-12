@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,it.sauronsoftware.base64.Base64,com.HFXBlog.main.model.Article;" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>${ requestScope.article.title }</title>
+    <title>HFXBlog</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
   </head>
   
-  <body>
+  <body class="background">
   	<jsp:include page="/views/header.jsp"/>
   
     <div class="container" id="container">
@@ -56,7 +56,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			
 				<div class="col-md-10">
-					<h2 style="color:blue;"><a href="reader/articleAction.action?title=${ article.title }"><c:out value="${ article.title }" /></a></h2>
+					<% String titleURL=((Article)(pageContext.getAttribute("article"))).getTitle(); 
+						String encrypt=Base64.encode(titleURL);%>
+					<h2 style="color:blue;"><a href="reader/articleAction.action?title=<%= encrypt %>"><c:out value="${ article.title }" /></a></h2>
 					<p><c:out value="${ article.content }" escapeXml="false" /></p>
 				</div>
 			</div>

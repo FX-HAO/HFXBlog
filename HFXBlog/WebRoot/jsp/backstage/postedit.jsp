@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="css/component/RichText/index.css">
 	
 	<link rel="stylesheet" type="text/css" href="css/component/RichText/bootstrap-responsive.min.css">
-	<!--  <link href="css/component/RichText/font-awesome.css" rel="stylesheet"> -->
+	<!-- <link href="css/component/RichText/font-awesome.css" rel="stylesheet"> -->
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 	
 	<script text="text/javascript" src="js/jquery-2.1.0.min.js"></script>
@@ -119,7 +119,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
     </div>
-
     <div id="editor">
       
     </div>
