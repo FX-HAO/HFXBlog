@@ -33,5 +33,9 @@ public class ArticleBoImpl implements ArticleBo{
 	public List<Article> queryArticles(int fromPage, int toPage) {
 		return articleDAO.queryArticles(fromPage, toPage);
 	}
+	
+	public List<Article> hotestArticles(int maxPages) {
+		return articleDAO.hotestArticles(maxPages);
+	}
 
 }

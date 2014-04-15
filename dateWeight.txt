@@ -1,0 +1,11 @@
+mysql> CREATE FUNCTION dateWeight(aTitle VARCHAR(255),rangeDAY INT(10),unit INT(10)) RETURNS INT(10)
+    -> BEGIN
+    -> DECLARE day int(10);
+    -> select datediff(now(),date) into day from hfxblog_article where title=aTitle;
+    -> IF day<rangeDAY THEN
+    ->     RETURN unit;
+    -> ELSE
+    ->     RETURN 0;
+    -> END IF;
+    -> END;
+Query OK, 0 rows affected

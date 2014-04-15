@@ -5,17 +5,21 @@
 	<div class="jumbotron" style="background-image:url('picture/welcome.jpg');width:1400px; height:300px;overflow:hidden;">
 	<div class="jumbotron" id="center" style="filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity: 0.5;  opacity: 0.5;">
 		<div class="container">
-       		<h1>欢迎来到HFXBlog.com</h1>
+       		<h1>Surely I Am Joking</h1>
         	<p>welcome to HFXBlog.com</p>
 		</div>
 	</div>
 	</div>
+
+	
 	<div class="container" id="container">
+		<div class="row">
+		<div class="col-lg-10">
 		<c:if test="${ requestScope.articles!=null }">
 			<c:forEach var="article" items="${ requestScope.articles }">
 			<div class="row">
 				
-				<div class="col-md-2">
+				<div class="col-lg-2">
 					<div id="main" class="postlist" role="main">
 						<article class="post hentry clearfix" data-post-id="blog/cataclysm-problem">
 
@@ -38,13 +42,14 @@
 					</div>
 				</div>
 			
-				<div class="col-md-10">
+				<div class="col-xs-10">
 					<% String titleURL=((Article)(pageContext.getAttribute("article"))).getTitle(); 
-						String encrypt=Base64.encode(titleURL);%>
+						String encrypt=Base64.encode(titleURL); %>
 					<h2 style="color:blue;"><a href='reader/articleAction.action?title=<%= encrypt %>'><c:out value="${ article.title }" /></a></h2>
 					<p><c:out value="${ article.content }" escapeXml="false" /></p>
 				</div>
 			</div>
+			
 			<hr/>
 			</c:forEach>
 			
@@ -67,4 +72,21 @@
 				</c:when>
 			</c:choose>
 		</c:if>
+		</div>
+		
+		<div class="sidebarBox col-md-2">
+			<h4>最熱門</h4>
+			<ul>
+			<c:forEach var="hotArticle" items="${ requestScope.hotests }">	
+				<li>
+				<% String titleURL=((Article)(pageContext.getAttribute("hotArticle"))).getTitle(); 
+						String encrypt=Base64.encode(titleURL); %>
+				<a href='reader/articleAction.action?title=<%= encrypt %>'><c:out value="${ hotArticle.title }" /></a>
+				- <p>${ hotArticle.readership }</p>
+				</li>
+			</c:forEach>
+			</ul>
+		</div>
+		
+		</div>
 	</div>

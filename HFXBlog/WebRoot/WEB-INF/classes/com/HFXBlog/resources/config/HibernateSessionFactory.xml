@@ -18,7 +18,7 @@
 		
 		<property name="mappingResources">
 			<list>
-				<value>com/HFXBlog/resources/hibernate/ObjectMap.hbm.xml</value>
+				<value>com/HFXBlog/resources/hibernate/ORM.hbm.xml</value>
 			</list>
 		</property>
 		

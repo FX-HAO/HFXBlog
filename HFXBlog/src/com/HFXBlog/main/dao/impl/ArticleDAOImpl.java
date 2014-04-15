@@ -54,4 +54,14 @@ public class ArticleDAOImpl extends HibernateDaoSupport implements ArticleDAO{
 		return list;
 	}
 	
+	public List<Article> hotestArticles(int maxPages){
+		org.hibernate.Session session=getHibernateTemplate().getSessionFactory().openSession();
+		Query query=session.createQuery("from Article order by (readership+dateWeight(title,2,10)) DESC");
+		query.setFirstResult(0);
+		query.setMaxResults(maxPages);
+		List list=query.list();
+		session.close();
+		return list;
+	}
+	
 }

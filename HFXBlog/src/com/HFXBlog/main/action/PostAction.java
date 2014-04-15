@@ -43,9 +43,12 @@ public class PostAction extends ActionSupport{
 			page=0;
 		}
 		List<Article> list=articleBo.queryArticles(page, page+10);
+		List<Article> hotests=articleBo.hotestArticles(10);
+		System.out.println(hotests.get(0).getTitle());
 		request.setAttribute("page", page);
 		request.setAttribute("articles", list);
 		request.setAttribute("nums", list.size());
+		request.setAttribute("hotests", hotests);
 		return "success";
 	}
 	

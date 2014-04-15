@@ -10,8 +10,8 @@ $(function() {
 });
 
 $(function() {
-	var w=$('.col-md-10').width();
-	$('.col-md-10 img').each(function() {
+	var w=$('.col-xs-10').width();
+	$('.col-xs-10 img').each(function() {
 		var img_w=$(this).width();
 		var img_h=$(this).height();
 		if(img_w>w) {

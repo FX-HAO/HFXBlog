@@ -21,4 +21,7 @@ public interface ArticleDAO {
 	//query articles of specific pages
 	List<Article> queryArticles(int fromPage,int toPage);
 	
+	//query hotest of articles
+	List<Article> hotestArticles(int maxPages);
+	
 }

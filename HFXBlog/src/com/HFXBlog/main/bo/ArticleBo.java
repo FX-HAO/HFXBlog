@@ -16,4 +16,6 @@ public interface ArticleBo {
 	
 	List<Article> queryArticles(int fromPage,int toPage);
 	
+	List<Article> hotestArticles(int maxPages);
+	
 }
